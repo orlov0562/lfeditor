@@ -13,5 +13,6 @@
 			<a href="<?=routeToUrl('file/lines/'.$marker)?>"><?=$fileInf['menu']?></a>
 		</li>
 	<?php endforeach; ?>
+	<li class="<?=isCurrentRoute('backup')?'current':''?>"><a href="<?=routeToUrl('backup')?>">Backup</a></li>		
 	<li class="exit"><a href="<?=routeToUrl('login/logout')?>">Exit</a></li>		
 </ul>

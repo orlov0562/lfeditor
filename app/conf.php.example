@@ -7,6 +7,7 @@
 	
 	setConf('route.aliases', [
 		'home' => 'home/index',
+		'backup' => 'backup/index',				
 		'login' => 'login/form',		
 		'404' => 'errors/err404',
 		'503' => 'errors/err503',		

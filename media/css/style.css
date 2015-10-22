@@ -72,6 +72,11 @@ ul.pagination li.current a {
 
 /* -------- */
 
+table.colored tr th,
+table.colored tr td {
+	padding: 0 5px;
+}
+
 table.colored tr th {
 	background-color: #0000AF;
 	color:white;
