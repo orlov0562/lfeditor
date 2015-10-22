@@ -59,4 +59,5 @@ setConf('admin.password', 'YOUR-PASSWORD');
 
 ##FAQ
 
-What is default password? Answer: admin
+What is default password? 
+- admin
