@@ -59,9 +59,9 @@ setConf('admin.password', 'YOUR-PASSWORD');
 
 6) If you want to turn on pretty urls do next:
 
-	a) rename `.htaccess.example` to `.htaccess` . Modify RewriteBase if needed (if you use subfolder).
+ a) rename `.htaccess.example` to `.htaccess` . Modify RewriteBase if needed (if you use subfolder).
 
-	b) change `setConf('url.rewrite', false);` to `setConf('url.rewrite', true);` in config file
+ b) change `setConf('url.rewrite', false);` to `setConf('url.rewrite', true);` in config file
 
 7) Enjoy :]
 
