@@ -60,6 +60,7 @@ setConf('admin.password', 'YOUR-PASSWORD');
 6) If you want to turn on pretty url do next:
 
 a) rename `.htaccess.example` to `.htaccess`
+
 b) change `setConf('url.rewrite', false);` to `setConf('url.rewrite', true);` in config file
 
 7) Enjoy :]
