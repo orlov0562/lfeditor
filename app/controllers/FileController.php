@@ -70,7 +70,7 @@
 				}
 
 				if (!$errors) {
-					addFlash('Message added');
+					addFlash('Line added');
 					file_put_contents($fileInf['path'], trim($form['newLine']).PHP_EOL, FILE_APPEND);
 					redirectToRoute('file/lines/'.$fileMarker);
 				}
@@ -128,7 +128,7 @@
 				}
 
 				if (!$errors) {
-					addFlash('Message added');
+					addFlash('Line saved');
 					$data[$lineNum] = trim($form['editLine']).PHP_EOL;
 					file_put_contents($fileInf['path'], implode($data));
 					redirectToRoute('file/lines/'.$fileMarker,['p'=>$page]);
@@ -160,7 +160,8 @@
 			$p = getGetVar('p', 0);
 			$lastPage = ceil(count($data)/getConf('per.page'))-1;
 			if ($lastPage>0 && $p>$lastPage) $p = $lastPage;
-			
+
+			addFlash('Line deleted');			
 			redirectToRoute('file/lines/'.$fileMarker,['p'=>$p]);
 		}		
 		

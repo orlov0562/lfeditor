@@ -1,6 +1,6 @@
 <?php
 
-	class IndexController extends AdminController {
+	class HomeController extends AdminController {
 
 		public function indexAction(){
 			$this->title = 'Dashboard';

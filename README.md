@@ -32,15 +32,17 @@ so I can edit it in fast way.
 
 1) Clone project with git
 
-2) Open app/config.php and replace admin password in next section:
+2) Copy app/config.php.example to app/config.php
+
+3) Open app/config.php and replace admin password in next section:
 
 ```php
 setConf('admin.password', 'YOUR-PASSWORD');
 ```
 
-3) Open main page and take a fun with Test file :)
+4) Open main page and take a fun with Test file :)
 
-4) Add your files to config, ex:
+5) Add your files to config, ex:
 
 ```php
 	setConf('files', [
@@ -55,7 +57,12 @@ setConf('admin.password', 'YOUR-PASSWORD');
 	]);
 ```
 
-5) Enjoy :)
+6) If you want to turn on pretty url do next:
+
+a) rename `.htaccess.example` to `.htaccess`
+b) change `setConf('url.rewrite', false);` to `setConf('url.rewrite', true);` in config file
+
+7) Enjoy :]
 
 ##FAQ
 

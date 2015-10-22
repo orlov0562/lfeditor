@@ -3,10 +3,10 @@
 	
 	setConf('env', 'dev'); // dev / prod
 	
-	setConf('url.rewrite', true);
+	setConf('url.rewrite', false);
 	
 	setConf('route.aliases', [
-		'home' => 'index/index',
+		'home' => 'home/index',
 		'login' => 'login/form',		
 		'404' => 'errors/err404',
 		'503' => 'errors/err503',		
