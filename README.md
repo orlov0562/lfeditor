@@ -4,13 +4,16 @@ Backend that allows edit text files line-by-line.
 I'm using it to edit through browser filters files that contains stop-words.
 
 For example, if I have files with next contents:
-```
+
+```text
 stopword-1
 stopword-2
 stopword-3
 ```
+
 this script represent it in GUI in next way:
-```
+
+```text
 [File-1]  [File-2]   [File-3]
 ----------------------------------------------
 
@@ -22,18 +25,22 @@ stopword-3 [ edit ] [ delete ]
 
 [1] [2] [3] .. [55]
 ```
+
 so I can edit this files in fast way.
 
-Configuration
-~~~~~~~~~~~~~~
+##Configuration
+
 1) Clone project with git
 2) Open app/config.php and replace admin password in next section:
-```
+
+```php
 setConf('admin.password', 'YOUR-PASSWORD');
 ```
+
 3) Open main page and take a fun with Test file :)
 4) Add your files to config, ex:
-```
+
+```php
 	setConf('files', [
 		'marker-1'=>[
 			'menu' => 'Menu Title 1',
@@ -45,9 +52,9 @@ setConf('admin.password', 'YOUR-PASSWORD');
 		],		
 	]);
 ```
+
 5) Enjoy :)
 
-FAQ
-~~~~~~~~~~~~~~
-What is default password?
-- admin
+##FAQ
+
+What is default password? Answer: admin
