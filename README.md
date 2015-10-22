@@ -11,7 +11,7 @@ stopword-2
 stopword-3
 ```
 
-this script represent it in GUI in next way:
+The script represent this file in GUI in next way:
 
 ```text
 [File-1]  [File-2]   [File-3]
@@ -31,6 +31,7 @@ so I can edit this files in fast way.
 ##Configuration
 
 1) Clone project with git
+
 2) Open app/config.php and replace admin password in next section:
 
 ```php
@@ -38,6 +39,7 @@ setConf('admin.password', 'YOUR-PASSWORD');
 ```
 
 3) Open main page and take a fun with Test file :)
+
 4) Add your files to config, ex:
 
 ```php
