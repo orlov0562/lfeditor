@@ -26,7 +26,7 @@ stopword-3 [ edit ] [ delete ]
 [1] [2] [3] .. [55]
 ```
 
-so I can edit this files in fast way.
+so I can edit it in fast way.
 
 ##Configuration
 
