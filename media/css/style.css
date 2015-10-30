@@ -1,6 +1,8 @@
 body {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 0.9em;
+	padding:0;
+	margin:0;
 }
 /* -------- */
 a {color:#0000AF;}
@@ -11,41 +13,84 @@ a.btn {
 	border-radius: 3px;
 	padding: 1px 5px;
 	text-decoration:none;
-	background-color: #E0E0E0;	
+	background-color: #E0E0E0;
 	color:black;
 }
 
 /* -------- */
 
+div.header {
+	overflow:auto;
+	background-color: #1E90FF;
+	color:white;
+	border-bottom:2px solid black;
+}
+div.header>div.project-name {
+	float:left;
+	margin-right:50px;
+}
+
+div.header>div.project-name h1 {
+	padding:10px;
+	margin:0px;
+	font-weight:bold;
+	text-transform:uppercase;
+	font-size:1em;
+}
+
+div.header>div.project-name h1 a{
+	color:white;
+	text-decoration:none;
+}
+
+div.header>div.menu {
+	float:left;
+}
+
+/* -------- */
+div.body {
+	padding:10px;
+}
+/* -------- */
+
 .top-menu {
 	overflow:auto;
-	padding:0 0 10px 0;
-	margin:0px;
-	border-bottom:2px solid silver;
+	padding:0;
+	margin:0;
 }
 
 .top-menu li {
+
 	float:left;
 	padding:0px;
 	list-style:none;
 	margin-right:20px;
 }
-
-.top-menu li.exit a {color:red;}
-.top-menu li.current a {color:black; font-weight:bold;}
+.top-menu li a {
+	color:white;
+	display:block;
+	padding:10px;
+}
+.top-menu li.exit a {color:#FFA500;}
+.top-menu li.current a {
+	color:black;
+	font-weight:bold;
+	background-color: #71B9FF;
+	text-decoration:none;
+}
 
 /* -------- */
 
 ul.pagination {overflow:auto; margin:0; padding:0;}
 ul.pagination li {
-	float:left; 
-	list-style:none; 
-	margin:10px 5px 10px 0px; 
-	padding:0; 
+	float:left;
+	list-style:none;
+	margin:10px 5px 10px 0px;
+	padding:0;
 }
 
 ul.pagination li a {
-	width:25px; 
+	width:25px;
 	height:25px;
 	text-align:center;
 	display:block;
@@ -55,7 +100,7 @@ ul.pagination li a {
 }
 
 ul.pagination li span {
-	width:25px; 
+	width:25px;
 	height:25px;
 	text-align:center;
 	display:block;
@@ -108,22 +153,22 @@ table.colored tr td {
 
 /* -------- */
 
-ul.errors { 
-	font-size:0.9em; 
-	color:red; 
-	border:1px solid red; 
-	display:inline-block; 
+ul.errors {
+	font-size:0.9em;
+	color:red;
+	border:1px solid red;
+	display:inline-block;
 	padding:10px 20px;
-	background-color: #EFEFEF;	
+	background-color: #EFEFEF;
 }
 
-ul.messages { 
-	font-size:0.9em; 
-	color:green; 
-	border:1px solid green; 
-	display:inline-block; 
+ul.messages {
+	font-size:0.9em;
+	color:green;
+	border:1px solid green;
+	display:inline-block;
 	padding:10px 20px;
-	background-color: #EFEFEF;	
+	background-color: #EFEFEF;
 }
 
 /* -------- */

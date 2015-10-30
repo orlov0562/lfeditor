@@ -8,8 +8,13 @@
 </head>
 
 <body>
-	<?=view('menu')?>
-	<?=isset($body)?$body:''?>
+	<div class="header">
+		<div class="project-name"><h1><a href="<?=routeToUrl('home')?>"><?=getConf('project.name')?></a></h1></div>
+		<div class="menu"><?=view('menu')?></div>
+	</div>
+	<div class="body">
+		<?=isset($body)?$body:''?>
+	</div>
 </body>
 
 </html>
