@@ -1,7 +1,8 @@
 <?php
 	setConf('admin.password', 'admin');
+	setConf('admin.ip', false); // IP to check ip or FALSE to disable ip checking
 
-	setConf('env', 'dev'); // dev / prod
+	setConf('env', 'dev'); // dev or prod
 
 	setConf('url.rewrite', false);
 

@@ -8,14 +8,14 @@
 			return $def;
 		}
 	}
-	
+
 	function setConf($var, $val) {
 		$GLOBALS['__cfg'][$var] = $val;
-	}	
-	
+	}
+
 	function processRoute($route)
 	{
-		$controllerName = $route['controller'];			
+		$controllerName = $route['controller'];
 		$controllerName = strtolower($controllerName);
 		$controllerName = ucfirst($controllerName);
 		$controllerName .= 'Controller';
@@ -30,7 +30,7 @@
 
 		$controllerObj = new $controllerName;
 
-		$actionName = $route['action'];			
+		$actionName = $route['action'];
 		$actionName = strtolower($actionName);
 		$actionName = ucfirst($actionName);
 		$actionName .= 'Action';
@@ -57,21 +57,21 @@
 	function redirectToRoute($route, array $getVars=[], $code=302) {
 		redirect(routeToUrl($route, $getVars), $code);
 	}
-	
+
 	function redirectTo404() {
-		$request = getConf('_request'); 
+		$request = getConf('_request');
 		if ($request['plain'] != getRouteFromAlias('404')) {
 			redirectToRoute('404');
 		} else { // "Not found" route not found :), avoid loop redirection
-			die('404 - Not found'); 
+			die('404 - Not found');
 		}
 	}
-	
+
 	function redirect($url, $code=302) {
 		Header('Location:'.$url, TRUE, $code);
 		exit;
 	}
-	
+
 	function routeToUrl($route, array $getVars=[])
 	{
 		$request = getConf('_request');
@@ -81,7 +81,7 @@
 		if (getConf('url.rewrite')) {
 			$url.='/'.$route;
 		} else {
-			$getVars['r'] = $route;	
+			$getVars['r'] = $route;
 		}
 
 		if ($getVars) {
@@ -90,7 +90,7 @@
 
 		return $url;
 	}
-	
+
     function getBaseUrl() {
         // output: /myproject/index.php
         $currentPath = $_SERVER['PHP_SELF'];
@@ -103,23 +103,23 @@
         // return: http://localhost/myproject/
         return $protocol.$hostName.$pathInfo['dirname'];
     }
-    
+
     function getMediaUrl($urlPart){
     	return getBaseUrl().'/media/'.$urlPart;
     }
-	
+
 	function isEnvMode($mode) {
 		return getConf('env') == $mode;
 	}
-	
+
 	function getRequestVar($index, $def=null) {
-		return getArrVar($_REQUEST, $index, $def);	
+		return getArrVar($_REQUEST, $index, $def);
 	}
-	
+
 	function getGetVar($index, $def=null) {
 		return getArrVar($_GET, $index, $def);
 	}
-	
+
 	function getPostVar($index, $def=null) {
 		return getArrVar($_POST, $index, $def);
 	}
@@ -127,38 +127,42 @@
 	function getCookieVar($index, $def=null) {
 		return getArrVar($_COOKIE, $index, $def);
 	}
-	
+
 	function setCookieVar($index, $val, $period=86400, $path='/') {
 		setcookie($index, $val, time() + $period, $path);
-	}	
-	
+	}
+
 	function getSessionVar($index, $def=null) {
 		return getArrVar($_SESSION, $index, $def);
 	}
-	
+
 	function setSessionVar($index, $val) {
 		$_SESSION[$index] = $val;
-	}			
-	
+	}
+
 	function getArrVar(array $arr, $index, $def=null) {
 		return !empty($arr[$index])
 			   ? $arr[$index]
 			   : $def
 		;
 	}
-	
+
 	function esc($text){
 		return htmlspecialchars($text, ENT_QUOTES);
 	}
-	
+
 	function isAuthenticatedUser(){
 		return getSessionVar('auth_key') == 'allowed';
 	}
-	
-	function getRouteFromAlias($alias){
-		return getArrVar(getConf('route.aliases'), $alias, $alias);	
+
+	function isAllowedUserIp() {
+		return !getConf('admin.ip') OR (getConf('admin.ip')==$_SERVER['REMOTE_ADDR']);
 	}
-	
+
+	function getRouteFromAlias($alias){
+		return getArrVar(getConf('route.aliases'), $alias, $alias);
+	}
+
 	function view($template, array $vars=[]) {
 		$templatePath = ROOT_DIR.'/app/views/'.$template.'.php';
 		if (!file_exists($templatePath)) {
@@ -166,15 +170,15 @@
 		}
 		ob_start();
 		extract($vars);
-		include $templatePath;		
+		include $templatePath;
 		$html = ob_get_clean();
 		return $html;
 	}
-	
+
 	function isCurrentRoute($aliases) {
 		$ret = false;
 		$request = getConf('_request');
-		
+
 		if (!is_array($aliases)) $aliases = [$aliases];
 
 		foreach($aliases as $alias) {
@@ -182,21 +186,21 @@
 			$ret = $request['plain'] == $route;
 			if ($ret) break;
 		}
-		
+
 		return $ret;
 	}
-	
+
 	function addFlash($msg, $type='msg') {
 		$fm = getSessionVar('_flash_messages',[]);
 		if (!isset($fm[$type])) $fm[$type] = [];
 		$fm[$type][] = $msg;
-		setSessionVar('_flash_messages', $fm);		
+		setSessionVar('_flash_messages', $fm);
 	}
-	
+
 	function addFlashes($msgs, $type='msg') {
 		foreach($msgs as $msg) addFlash($msg, $type);
-	}	
-	
+	}
+
 	function getFlashes($type=null){
 		$ret = [];
 		$fm = getSessionVar('_flash_messages',[]);
@@ -212,5 +216,5 @@
 		}
 		return $ret;
 	}
-	
+
 
